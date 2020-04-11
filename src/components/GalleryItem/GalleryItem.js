@@ -38,7 +38,12 @@ class GalleryItem extends Component {
           <p> {this.props.item.description}</p>
         </div>
 
-        <button>love it!</button>
+        <button
+          data-id={this.props.item.id}
+          onClick={this.props.clickLikeButton}
+        >
+          love it!
+        </button>
         {likesMessage}
       </div>
     );
