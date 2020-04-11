@@ -6,7 +6,7 @@ class GalleryList extends Component {
     const displayedGallery = this.props.galleryData.map((item, index) => {
       return <GalleryItem key={index} item={item} />;
     });
-    return <div>{displayedGallery}</div>;
+    return <div className="item-container">{displayedGallery}</div>;
   }
 }
 

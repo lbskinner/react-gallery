@@ -28,7 +28,7 @@ const galleryItems = [
     id: 5,
     path: "images/kids.jpg",
     description: "The most precious things in my life.",
-    likes: 0,
+    likes: 5,
   },
 ];
 
