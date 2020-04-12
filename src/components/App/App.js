@@ -42,6 +42,10 @@ class App extends Component {
     });
   };
 
+  clickDeleteButton = (event) => {
+    const id = event.target.dataset.id;
+    console.log("Delete Clicked: ", id);
+  };
   //
   // API SERVER CALLS
   // -------------------
@@ -107,6 +111,7 @@ class App extends Component {
         <GalleryList
           galleryData={this.state.galleryData}
           clickLikeButton={this.clickLikeButton}
+          clickDeleteButton={this.clickDeleteButton}
         />
         {/* <img src="images/goat_small.jpg" alt="goat" /> */}
       </div>

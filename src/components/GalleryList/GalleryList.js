@@ -9,6 +9,7 @@ class GalleryList extends Component {
           key={index}
           item={item}
           clickLikeButton={this.props.clickLikeButton}
+          clickDeleteButton={this.props.clickDeleteButton}
         />
       );
     });
