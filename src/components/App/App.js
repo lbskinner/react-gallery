@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import GalleryList from "../GalleryList/GalleryList";
+import AddGalleryItem from "../AddGalleryItem/AddGalleryItem";
 
 class App extends Component {
   state = {
+    newGalleryItem: {
+      path: "",
+      description: "",
+    },
     galleryData: [],
   };
   componentDidMount() {
@@ -22,9 +27,39 @@ class App extends Component {
     this.updateLikes(id);
   };
 
+  addNewItem = (event) => {
+    event.preventDefault();
+    console.log(this.state.newGalleryItem);
+    this.sendNewGalleryToServer(this.state.newGalleryItem);
+  };
+
+  changeNewGalleryItem = (event, newGalleryKey) => {
+    this.setState({
+      newGalleryItem: {
+        ...this.state.newGalleryItem,
+        [newGalleryKey]: event.target.value,
+      },
+    });
+  };
+
   //
   // API SERVER CALLS
   // -------------------
+
+  sendNewGalleryToServer(newItem) {
+    axios({
+      method: "POST",
+      url: "/gallery",
+      data: newItem,
+    })
+      .then((response) => {
+        console.log(`Server POST Response: ${response.data}`);
+        this.getGallery();
+      })
+      .catch((error) => {
+        console.log("POST ERROR: ", error);
+      });
+  }
 
   getGallery() {
     axios({
@@ -32,7 +67,7 @@ class App extends Component {
       url: "/gallery",
     })
       .then((response) => {
-        console.log("Server Response: ", response.data);
+        console.log("Server GET Response: ", response.data);
         this.setState({
           galleryData: [...response.data],
         });
@@ -63,6 +98,11 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br />
+        <AddGalleryItem
+          newGalleryItem={this.state.newGalleryItem}
+          addNewItem={this.addNewItem}
+          changeNewGalleryItem={this.changeNewGalleryItem}
+        />
         <p>Gallery goes here</p>
         <GalleryList
           galleryData={this.state.galleryData}
