@@ -42,9 +42,28 @@ class App extends Component {
     });
   };
 
+  clickDeleteButton = (event) => {
+    const id = event.target.dataset.id;
+    console.log("Delete Clicked: ", id);
+    this.deleteGalleryItem(id);
+  };
   //
   // API SERVER CALLS
   // -------------------
+
+  deleteGalleryItem(itemId) {
+    axios({
+      method: "DELETE",
+      url: `/gallery/${itemId}`,
+    })
+      .then((response) => {
+        console.log(`Server DELETE Response: ${response.data}`);
+        this.getGallery();
+      })
+      .catch((error) => {
+        console.log("DELETE ERROR: ", error);
+      });
+  }
 
   sendNewGalleryToServer(newItem) {
     axios({
@@ -77,10 +96,10 @@ class App extends Component {
       });
   }
 
-  updateLikes(id) {
+  updateLikes(itemId) {
     axios({
       method: "PUT",
-      url: `/gallery/like/${id}`,
+      url: `/gallery/like/${itemId}`,
     })
       .then((response) => {
         console.log(response.data);
@@ -107,6 +126,7 @@ class App extends Component {
         <GalleryList
           galleryData={this.state.galleryData}
           clickLikeButton={this.clickLikeButton}
+          clickDeleteButton={this.clickDeleteButton}
         />
         {/* <img src="images/goat_small.jpg" alt="goat" /> */}
       </div>
