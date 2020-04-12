@@ -15,6 +15,14 @@ class GalleryItem extends Component {
     });
   };
 
+  changeToImage = (event) => {
+    console.log("Description Clicked");
+    this.setState({
+      classNameImage: "",
+      classNameDescription: "hideDisplay",
+    });
+  };
+
   render() {
     let likesMessage = <p>No people love this :(</p>;
     if (this.props.item.likes > 0) {
@@ -34,7 +42,10 @@ class GalleryItem extends Component {
             onClick={this.changeToDescription}
           />
         </div>
-        <div className={this.state.classNameDescription + " square"}>
+        <div
+          className={this.state.classNameDescription + " square"}
+          onClick={this.changeToImage}
+        >
           <p> {this.props.item.description}</p>
         </div>
 
