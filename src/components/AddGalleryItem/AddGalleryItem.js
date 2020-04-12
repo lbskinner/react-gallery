@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddGalleryItem.css";
 
 class AddGalleryItem extends Component {
   render() {
