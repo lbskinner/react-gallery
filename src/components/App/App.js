@@ -73,6 +73,12 @@ class App extends Component {
     })
       .then((response) => {
         console.log(`Server POST Response: ${response.data}`);
+        this.setState({
+          newGalleryItem: {
+            path: "",
+            description: "",
+          },
+        });
         this.getGallery();
       })
       .catch((error) => {

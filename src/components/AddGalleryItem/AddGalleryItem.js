@@ -9,6 +9,7 @@ class AddGalleryItem extends Component {
           type="text"
           placeholder="www.example.com"
           required
+          value={this.props.newGalleryItem.path}
           onChange={(event) => this.props.changeNewGalleryItem(event, "path")}
         />
         <label>Description:</label>
@@ -16,6 +17,7 @@ class AddGalleryItem extends Component {
           type="text"
           placeholder="Enter a description"
           required
+          value={this.props.newGalleryItem.description}
           onChange={(event) =>
             this.props.changeNewGalleryItem(event, "description")
           }

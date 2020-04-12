@@ -1,4 +1,4 @@
-# Weekend Challenge: React - Gallery of My Life
+# Weekend Challenge #4: React - Gallery of My Life
 
 [Here](./INSTRUCTIONS.md) is the project instructions.
 
@@ -15,7 +15,6 @@ On the top part of the page, users can add items to the gallery.
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
-- [React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ## Installation
 
@@ -28,7 +27,7 @@ On the top part of the page, users can add items to the gallery.
 
 ## Built With
 
-javascript, node, axios, pg, SQL, Postman, Postico, Postgres, React
+javascript, node, axios, pg, express, body-parser, SQL, Postman, Postico, Postgres, React
 
 ## Acknowledgement
 
