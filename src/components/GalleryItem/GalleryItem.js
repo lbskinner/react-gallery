@@ -59,7 +59,7 @@ class GalleryItem extends Component {
           data-id={this.props.item.id}
           onClick={this.props.clickDeleteButton}
         >
-          Delete
+          delete
         </button>
         {likesMessage}
       </div>
